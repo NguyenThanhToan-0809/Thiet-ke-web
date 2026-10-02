@@ -1,0 +1,284 @@
+:root {
+    /* Theme Light (Mặc định) */
+    --primary-color: #1a1a2e;
+    --secondary-color: #e94560;
+
+    /* 3 mức màu xám cho text */
+    --text-dark: #333333;
+    --text-medium: #666666;
+    --text-light: #cccccc;
+
+    /* Màu nền chung */
+    --bg-color: #f4f4f9;
+    --section-bg: #ffffff;
+    
+    /* Các màu khác (đã trích xuất) */
+    --white: #ffffff;
+    --text-muted: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.1);
+    
+    /* Màu riêng cho Heading (H2, H3) */
+    --h2-color: var(--primary-color);
+    --h3-color: var(--primary-color);
+
+    /* Khoảng cách (Margin/Padding/Gap) (đã trích xuất) */
+    --space-xs: 0.5rem;
+    --space-sm: 0.6rem;
+    --space-md: 0.8rem;
+    --space-lg: 1rem;
+    --space-xl: 1.2rem;
+    --space-2xl: 1.5rem;
+    --space-3xl: 2rem;
+    --space-4xl: 2.5rem;
+    --space-5xl: 3rem;
+    --space-15px: 15px;
+    --space-20px: 20px;
+    
+    /* Biến gap-size cũ, chuyển qua dùng chung với space-3xl */
+    --gap-size: var(--space-3xl);
+}
+
+[data-theme="dark"] {
+    /* Theme Dark (Chế độ tối) */
+    --primary-color: #0f3460;
+    --secondary-color: #e94560;
+
+    --text-dark: #f4f4f9;
+    --text-medium: #cccccc;
+    --text-light: #999999;
+
+    --bg-color: #1a1a2e;
+    --section-bg: #16213e;
+    
+    /* Thay đổi màu heading khi ở chế độ tối */
+    --h2-color: var(--secondary-color);
+    --h3-color: var(--text-dark);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container & CSS Grid */
+.container {
+    max-width: 1100px;
+    margin: var(--space-5xl) auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--gap-size);
+    padding: 0 var(--space-2xl);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: var(--space-4xl) var(--space-2xl);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    height: fit-content;
+    position: sticky;
+    top: var(--space-3xl);
+    transition: background-color 0.3s;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 4px solid var(--secondary-color);
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.sidebar p, .contact-info {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.contact-info {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+/* Nút đổi Theme */
+.theme-toggle {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: var(--space-lg);
+    transition: filter 0.3s;
+}
+
+.theme-toggle:hover {
+    filter: brightness(1.2);
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    gap: var(--gap-size);
+}
+
+section {
+    background-color: var(--section-bg);
+    padding: var(--space-4xl);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: background-color 0.3s;
+}
+
+h2 {
+    color: var(--h2-color);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    padding-bottom: var(--space-xs);
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Skills */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-15px);
+}
+
+.skill-tag {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-light);
+}
+
+.skill-tag:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    border-color: var(--secondary-color);
+}
+
+/* Projects */
+.project-list {
+    display: grid;
+    gap: var(--space-2xl);
+}
+
+.project {
+    background-color: var(--bg-color);
+    padding: var(--space-2xl);
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.project:hover {
+    transform: translateX(5px);
+}
+
+.project h3 {
+    margin-bottom: var(--space-xs);
+    color: var(--h3-color);
+}
+
+.project p {
+    color: var(--text-medium);
+}
+
+/* --- YÊU CẦU 2: Media Queries (Max-width 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        margin: var(--space-2xl) auto;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+}
+
+/* --- YÊU CẦU 3: Bố cục Services Container --- */
+.services-container {
+    display: grid;
+    gap: var(--space-20px);
+    grid-template-columns: 1fr;
+}
+
+.service-item {
+    background-color: var(--bg-color);
+    padding: var(--space-2xl);
+    border-radius: 8px;
+    border: 1px solid var(--text-light);
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
+.service-item h3 {
+    color: var(--h3-color);
+    margin-bottom: var(--space-xs);
+}
+
+.service-item p {
+    color: var(--text-medium);
+}
+
+/* 768px - 1024px: 2 cột */
+@media (min-width: 768px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* > 1024px: 4 cột */
+@media (min-width: 1025px) {
+    .services-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

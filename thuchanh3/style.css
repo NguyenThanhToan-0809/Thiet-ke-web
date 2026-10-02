@@ -1,12 +1,19 @@
 :root {
+    /* 2 màu chủ đạo */
     --primary-color: #1a1a2e;
-    --secondary-color: #16213e;
-    --accent-color: #e94560;
+    --secondary-color: #e94560;
+
+    /* 3 mức màu xám cho text */
+    --text-dark: #333333;
+    --text-medium: #666666;
+    --text-light: #e0e0e0;
+
+    /* 1 màu nền */
     --bg-color: #f4f4f9;
-    --text-color: #333;
-    --text-light: #f5f5f5;
+
+    /* Các biến hỗ trợ */
     --white: #ffffff;
-    --gap-size: 2rem; /* Thuộc tính gap đồng nhất */
+    --gap-size: 2rem;
 }
 
 * {
@@ -18,7 +25,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: var(--text-dark);
     line-height: 1.6;
 }
 
@@ -35,7 +42,7 @@ body {
 /* Sidebar styling (cột 1) */
 .sidebar {
     background-color: var(--primary-color);
-    color: var(--text-light);
+    color: var(--white);
     padding: 2.5rem 1.5rem;
     border-radius: 12px;
     text-align: center;
@@ -54,7 +61,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
-    border: 4px solid var(--accent-color);
+    border: 4px solid var(--secondary-color);
 }
 
 .sidebar h1 {
@@ -63,7 +70,7 @@ body {
 }
 
 .sidebar p {
-    color: #a0a0a0;
+    color: var(--text-light);
 }
 
 .contact-info {
@@ -72,6 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    color: var(--text-light);
 }
 
 /* Main content styling (cột 2) */
@@ -88,7 +96,7 @@ section {
 }
 
 h2 {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     position: relative;
@@ -103,7 +111,7 @@ h2::after {
     bottom: 0;
     width: 50%;
     height: 3px;
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     border-radius: 2px;
 }
 
@@ -123,14 +131,14 @@ h2::after {
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--text-light);
 }
 
 .skill-tag:hover {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     color: var(--white);
     transform: translateY(-3px);
-    border-color: var(--accent-color);
+    border-color: var(--secondary-color);
 }
 
 /* Projects styling */
@@ -143,7 +151,7 @@ h2::after {
     background-color: #fafafa;
     padding: 1.5rem;
     border-radius: 8px;
-    border-left: 5px solid var(--accent-color);
+    border-left: 5px solid var(--secondary-color);
     transition: transform 0.3s ease;
 }
 
@@ -156,13 +164,19 @@ h2::after {
     color: var(--primary-color);
 }
 
+.project p {
+    color: var(--text-medium);
+}
+
 /* Responsive cho màn hình nhỏ */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên thiết bị di động */
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột duy nhất */
+        margin: 1.5rem auto; /* Giảm margin bớt trên thiết bị di động */
     }
     
     .sidebar {
-        position: static;
+        position: static; /* Bỏ sticky */
+        /* Sidebar sẽ tự động chuyển lên đầu trang do thứ tự trong HTML */
     }
 }

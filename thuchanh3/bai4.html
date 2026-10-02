@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Đa Giao Diện</title>
+    <link rel="stylesheet" href="bai4.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cột 1: Sidebar -->
+        <aside class="sidebar">
+            <!-- Thay đường dẫn ảnh bằng ảnh thật của bạn nếu có -->
+            <img src="https://htmediagroup.vn/wp-content/uploads/2022/11/Anh-giam-doc-nam-01-min.jpg" alt="Avatar" class="avatar">
+            <h1>Nguyễn Văn A</h1>
+            <p>Web Developer</p>
+            <div class="contact-info">
+                <span>Email: contact@example.com</span>
+                <span>SĐT: 0123 456 789</span>
+            </div>
+            <!-- Nút chuyển đổi giao diện sáng/tối -->
+            <button class="theme-toggle" id="theme-toggle">Đổi Giao Diện</button>
+        </aside>
+
+        <!-- Cột 2: Nội dung chính -->
+        <main class="main-content">
+            <!-- Phần Kỹ năng -->
+            <section>
+                <h2>Kỹ Năng</h2>
+                <div class="skills">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </section>
+
+            <!-- Phần Dự án -->
+            <section>
+                <h2>Dự Án Nổi Bật</h2>
+                <div class="project-list">
+                    <div class="project">
+                        <h3>Trang web thương mại điện tử</h3>
+                        <p>Xây dựng giao diện mua sắm trực tuyến với tính năng giỏ hàng và thanh toán cơ bản.</p>
+                    </div>
+                    <div class="project">
+                        <h3>Ứng dụng quản lý công việc</h3>
+                        <p>Web app giúp người dùng theo dõi và lên lịch các công việc hàng ngày.</p>
+                    </div>
+                    <div class="project">
+                        <h3>Blog cá nhân</h3>
+                        <p>Nền tảng blog chia sẻ kiến thức lập trình và trải nghiệm cá nhân.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phần Dịch vụ -->
+            <section>
+                <h2>Dịch Vụ Cung Cấp</h2>
+                <div class="services-container">
+                    <div class="service-item">
+                        <h3>Thiết kế Web</h3>
+                        <p>Xây dựng website chuẩn SEO, tương thích mọi thiết bị.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Phát triển Web</h3>
+                        <p>Lập trình các ứng dụng web phức tạp, tối ưu hiệu suất.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Bảo trì Web</h3>
+                        <p>Duy trì, cập nhật hệ thống và xử lý lỗi chuyên nghiệp.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Tư vấn UI/UX</h3>
+                        <p>Cải thiện trải nghiệm người dùng và giao diện cho sản phẩm.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script đổi Dark/Light mode cho tính năng đa giao diện -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        toggleBtn.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
