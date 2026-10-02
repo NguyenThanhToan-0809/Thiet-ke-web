@@ -37,6 +37,24 @@
     
     /* Biến gap-size cũ, chuyển qua dùng chung với space-3xl */
     --gap-size: var(--space-3xl);
+
+    /* Hệ thống cỡ chữ (Typography - Mobile First) */
+    --font-size-h1: 1.5rem;
+    --font-size-h2: 1.3rem;
+    --font-size-h3: 1.1rem;
+    --font-size-p: 0.95rem;
+    --font-size-small: 0.85rem;
+}
+
+/* Tự động phóng to cỡ chữ cho màn hình từ 600px trở lên (Tablet/Desktop) */
+@media (min-width: 600px) {
+    :root {
+        --font-size-h1: 1.8rem;
+        --font-size-h2: 1.5rem;
+        --font-size-h3: 1.25rem;
+        --font-size-p: 1rem;
+        --font-size-small: 0.95rem;
+    }
 }
 
 [data-theme="dark"] {
@@ -64,6 +82,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--font-size-p); /* Áp dụng biến font-size cho text thường */
     background-color: var(--bg-color);
     color: var(--text-dark);
     line-height: 1.6;
@@ -107,13 +126,13 @@ body {
 }
 
 .sidebar h1 {
-    font-size: 1.8rem;
+    font-size: var(--font-size-h1);
     font-weight: 700;
 }
 
 .sidebar p, .contact-info {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: var(--font-size-small);
 }
 
 .contact-info {
@@ -156,7 +175,7 @@ section {
 
 h2 {
     color: var(--h2-color);
-    font-size: 1.5rem;
+    font-size: var(--font-size-h2);
     margin-bottom: var(--space-2xl);
     position: relative;
     padding-bottom: var(--space-xs);
@@ -188,7 +207,7 @@ h2::after {
     padding: var(--space-sm) var(--space-xl);
     border-radius: 30px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: var(--font-size-small);
     transition: all 0.3s ease;
     border: 1px solid var(--text-light);
 }
@@ -221,6 +240,7 @@ h2::after {
 .project h3 {
     margin-bottom: var(--space-xs);
     color: var(--h3-color);
+    font-size: var(--font-size-h3);
 }
 
 .project p {
@@ -263,6 +283,7 @@ h2::after {
 .service-item h3 {
     color: var(--h3-color);
     margin-bottom: var(--space-xs);
+    font-size: var(--font-size-h3);
 }
 
 .service-item p {
