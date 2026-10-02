@@ -1,0 +1,168 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #e94560;
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --text-light: #f5f5f5;
+    --white: #ffffff;
+    --gap-size: 2rem; /* Thuộc tính gap đồng nhất */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Yêu cầu kỹ thuật 1: Sử dụng CSS Grid cho bố cục tổng thể --- */
+.container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--gap-size); /* Yêu cầu kỹ thuật 3: Khoảng cách đồng nhất */
+    padding: 0 1.5rem;
+}
+
+/* Sidebar styling (cột 1) */
+.sidebar {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Gap trong sidebar */
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 4px solid var(--accent-color);
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.sidebar p {
+    color: #a0a0a0;
+}
+
+.contact-info {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Main content styling (cột 2) */
+.main-content {
+    display: grid;
+    gap: var(--gap-size); /* Yêu cầu kỹ thuật 3: Khoảng cách đồng nhất */
+}
+
+section {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* --- Yêu cầu kỹ thuật 2: Sử dụng Flexbox cho danh sách Kỹ năng --- */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+}
+
+/* Projects styling */
+.project-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project {
+    background-color: #fafafa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateX(5px);
+}
+
+.project h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên thiết bị di động */
+    }
+    
+    .sidebar {
+        position: static;
+    }
+}
